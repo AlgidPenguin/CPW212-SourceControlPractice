@@ -10,14 +10,24 @@ namespace SourceControlPractice
     {
         static void Main(string[] args)
         {
-            getSubtotal();
+            Double subtotal = getSubtotal();
+            Double tax = calculateTax(subtotal);
+
         }
 
-        public static Decimal getSubtotal()
+        public static Double getSubtotal()
         {
             Console.WriteLine("Please enter a subtotal: ");
             string input = Console.ReadLine();
-            return Convert.ToDecimal(input);
+            return Convert.ToDouble(input);
+        }
+
+        public static Double calculateTax(Double subtotal)
+        {
+            Double taxRate = .095;
+            Double tax = subtotal * taxRate;
+
+            return tax;
         }
     }
 }
