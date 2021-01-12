@@ -10,6 +10,14 @@ namespace SourceControlPractice
     {
         static void Main(string[] args)
         {
+            getSubtotal();
+        }
+
+        public static Decimal getSubtotal()
+        {
+            Console.WriteLine("Please enter a subtotal: ");
+            string input = Console.ReadLine();
+            return Convert.ToDecimal(input);
         }
     }
 }
