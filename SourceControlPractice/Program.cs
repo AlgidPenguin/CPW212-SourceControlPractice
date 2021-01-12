@@ -10,11 +10,24 @@ namespace SourceControlPractice
     {
         static void Main(string[] args)
         {
-            double subtotal = getSubtotal();
-            double tax = calculateTax(subtotal);
-            double grandTotal = getGrandTotal(subtotal, tax);
-            printResults(subtotal, tax, grandTotal);
-            Console.ReadKey();
+            bool isActive = true;
+
+            while(isActive == true)
+            {
+                double subtotal = getSubtotal();
+                double tax = calculateTax(subtotal);
+                double grandTotal = getGrandTotal(subtotal, tax);
+
+                printResults(subtotal, tax, grandTotal);
+                Console.ReadKey();
+
+                Console.WriteLine("To continue, hit Enter. To exit, type N.");
+                string userContinue = Console.ReadLine().ToUpper();
+                if (userContinue == "N")
+                {
+                    isActive = false;
+                }
+            }
         }
 
         public static double getSubtotal()
