@@ -10,30 +10,38 @@ namespace SourceControlPractice
     {
         static void Main(string[] args)
         {
-            Double subtotal = getSubtotal();
-            Double tax = calculateTax(subtotal);
-            Double grandTotal = getGrandTotal(subtotal, tax);
-
+            double subtotal = getSubtotal();
+            double tax = calculateTax(subtotal);
+            double grandTotal = getGrandTotal(subtotal, tax);
+            printResults(subtotal, tax, grandTotal);
+            Console.ReadKey();
         }
 
-        public static Double getSubtotal()
+        public static double getSubtotal()
         {
             Console.WriteLine("Please enter a subtotal: ");
             string input = Console.ReadLine();
             return Convert.ToDouble(input);
         }
 
-        public static Double calculateTax(Double subtotal)
+        public static double calculateTax(double subtotal)
         {
-            Double taxRate = .095;
-            Double tax = subtotal * taxRate;
+            double taxRate = .095;
+            double tax = subtotal * taxRate;
 
             return tax;
         }
 
-        public static Double getGrandTotal(Double subtotal, Double tax)
+        public static double getGrandTotal(double subtotal, double tax)
         {
             return subtotal + tax;
+        }
+
+        public static void printResults(double sub, double tax, double grand)
+        {
+            Console.WriteLine("Subtotal: " + sub.ToString("C"));
+            Console.WriteLine("Tax(9.5%): " + tax.ToString("C"));
+            Console.WriteLine("Grand Total: " + grand.ToString("C"));
         }
     }
 }
