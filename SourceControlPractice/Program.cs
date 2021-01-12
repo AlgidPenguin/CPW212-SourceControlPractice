@@ -12,6 +12,7 @@ namespace SourceControlPractice
         {
             Double subtotal = getSubtotal();
             Double tax = calculateTax(subtotal);
+            Double grandTotal = getGrandTotal(subtotal, tax);
 
         }
 
@@ -28,6 +29,11 @@ namespace SourceControlPractice
             Double tax = subtotal * taxRate;
 
             return tax;
+        }
+
+        public static Double getGrandTotal(Double subtotal, Double tax)
+        {
+            return subtotal + tax;
         }
     }
 }
